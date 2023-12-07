@@ -1,0 +1,1 @@
+positions = ['QB', 'RB', 'WR', 'TE', 'K', 'DEF']
