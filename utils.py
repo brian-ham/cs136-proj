@@ -16,6 +16,7 @@ def price_init():
 
     total budget is $100 for 8 players (1QB, 2RB, 2WR, 1TE, 1DST, 1K)
     '''
+
     #TODO
 
 def price_fluc():
