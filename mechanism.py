@@ -1,19 +1,19 @@
 class AMM:
-    def __init__(self):
-        self.player_pool = [] # Map from players to ask price
+    def __init__(self, players):
+        self.players = players
 
     def buy_player(self, player, bid):
-        if player not in self.player_pool:
-            # Error
-            pass
-        
-        if bid >= self.player_pool[player]:
-            # Give
-            pass
+        if bid >= self.players.loc[player]["Price"]:
+            return True
+
+        return False
     
     def sell_player(self, player, ask):
-        pass
-
+        if ask <= self.players.loc[player]["Price"]:
+            return True
+        
+        return False
+    
 class CDA:
     def __init__(self):
         pass

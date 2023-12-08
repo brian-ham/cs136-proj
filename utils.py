@@ -75,7 +75,7 @@ def team_selection_draft(agents, players):
         # initialize new column Perceived Value
         players["Perceived Value"] = 0
         for name in players.index:
-            players.loc[name, "Perceived Value"] = agent.get_valuation()[name]
+            players.loc[name, "Perceived Value"] = agent.vals[name]
 
         agent_prefs.append(players.sort_values(by="Perceived Value", ascending=False))
 
