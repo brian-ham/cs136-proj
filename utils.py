@@ -10,12 +10,12 @@ def valuation_generation(player_df):
     
     uses performance from past year as a mean + adds some variance to each player
     '''
-    # first column: ID, second column: PERCEIVED value, third column: ACTUAL value
+    # first column: ID, second column: PERCEIVED value
     vals = {}
 
     # create Dict of perceived values
     for (idx, row) in player_df.iterrows():
-        vals[idx] = row.Value + np.random.normal(0, 5)
+        vals[idx] = row.Price + np.random.normal(0, 1)
     return vals
 
 def team_selection_amm(vals, players):
@@ -110,9 +110,12 @@ if __name__ == "__main__":
     # later
     player_df = pd.read_csv("data/2021/player_list.csv", index_col=0)
     vals = valuation_generation(player_df)
+    # print("vals:",vals)
+    
+    print("vals_adjusted:",vals+vals+vals)
     print(player_df)
     team = team_selection_amm(vals, player_df)
     print("Team:")
     for player in team:
-        print("Player:" + str(player))
+        print("Player: " + str(player), "Position: " + player_df.loc[player]["Position"])
     print(team)

@@ -2,45 +2,51 @@ import sys
 import math
 from utils import *
 from constants import *
+from history import History
 
 class ShortTermAgent:
     '''
     Agent that makes reactionary decisions, i.e. values players based on their performance in just the past week
     '''
-    def __init__(self, vals):
+    def __init__(self, vals, team):
+        # first column: ID, second column: PERCEIVED value
         self.vals = vals
+        self.team = team
+        self.budget = 20
 
     def player_prices(self, history):
         '''
         Should return a dict of players -> prices that this agent values each player on their team at.
         '''
-        return {}
+        player_prices = {}
+        for player in self.team:
+            player_prices[player] = self.vals[player]
+        return player_prices
 
-    def player_bids(self, history):
+    def player_bids(self, round, history):
         '''
         Should return a dict of players -> prices that this agent wants to buy.
         '''
-        return {}
+        player_df = pd.read_csv("data/2022/by_weeks/week_"+str(round), index_col=0)
 
-    ## Delete this. Implement the strategy in player_prices and player_bids. Each round, player_prices() is called first for all agents,
+        learning_rate = 0.9
+        for player in self.vals:
+            self.vals[player] = (1 - learning_rate)*self.vals[player] + learning_rate*player_df.loc[player]["FPTS"]/20.0
+
+        bids = {}
+        for player in self.vals:
+            if self.vals[player] > history[player]:
+                bids[player] = self.vals[player]
+
+        return bids
+
+    ## Delete run function. Implement the strategy in player_prices and player_bids. Each round, player_prices() is called first for all agents,
     ## then, player_bids is called for all agents, then the mechanism performs trading/buying. For AMM, if you don't want to sell a player,
     ## set the price value to very high. If you definitely want to sell a player, set it to 0. A player will be sold back to the market 
     ## if the ask price is lower than the market price (you will get the market price back) (haha jk keep track of your own budget).
-    def run():
 
-        # PSEUDOCODE:
 
-        # get this round's history
-
-        # update self.vals based on this round's performance
-            # exactly how you update depends on the type of agent. more reactionary agent = more weight on this round's performance
-
-        # sort players by valuation
-
-        # make transactions accordingly, depending on whether it's budget or draft, as long as you can pay transaction fee
-
-        # update team
-        pass
+        
 
 class LongTerm:
     '''

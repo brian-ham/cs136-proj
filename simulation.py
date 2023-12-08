@@ -16,10 +16,13 @@ def run_amm(agents):
             for (player, ask) in asks:
                 if mech.sell_player(player, ask):
                     agent.team.remove(player)
+                    # agent.budget = agent.budget + history[player]
             bids = agent.player_bids(history)
             for (player, bid) in bids:
                 if mech.buy_player(player, bid):
                     agent.team.append(player)
+                    # agent.budget = agent.budget - history[player]
+            
             
             history.prices.append(player_df["Price"])
 
