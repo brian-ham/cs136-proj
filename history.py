@@ -4,3 +4,8 @@ class History:
         # prices[0] represents the prices for all the players in week 0.
         self.prices = []
     
+    def round(self):
+        return len(self.prices)
+    
+    def __getitem__(self, key):
+        return self.prices[key]
