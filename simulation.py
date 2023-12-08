@@ -25,6 +25,8 @@ def run_amm(agents):
 
             ### TODO: Figure out who won the week idk how to do this. Add to history in whatever way you want.
 
+    return history
+
 def run_cda(agents):
     pass
 
