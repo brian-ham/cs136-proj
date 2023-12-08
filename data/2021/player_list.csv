@@ -35,7 +35,6 @@ Trevor Siemian,93.2,qb,0.63,5.177777777777778
 Andy Dalton,93.1,qb,0.63,5.172222222222222
 Cam Newton,91.3,qb,0.62,5.072222222222222
 Tyrod Taylor,86.7,qb,0.58,4.816666666666666
-Tyler Huntley,86.7,qb,0.58,4.816666666666666
 Jacoby Brissett,76.4,qb,0.5,4.2444444444444445
 Trey Lance,67.0,qb,0.43,3.7222222222222223
 Geno Smith,55.3,qb,0.33,3.072222222222222
@@ -52,7 +51,6 @@ Jordan Love,24.2,qb,0.09,1.3444444444444443
 Joe Flacco,23.8,qb,0.09,1.3222222222222222
 Mason Rudolph,19.4,qb,0.05,1.0777777777777777
 Nick Foles,16.8,qb,0.03,0.9333333333333333
-P.J. Walker,16.8,qb,0.03,0.9333333333333333
 Marcus Mariota,14.9,qb,0.02,0.8277777777777778
 Jake Fromm,13.9,qb,0.01,0.7722222222222223
 Brandon Allen,13.8,qb,0.01,0.7666666666666667
@@ -71,10 +69,7 @@ Sam Ehlinger,0.9,qb,0.0,0.05
 Ryan Fitzpatrick,0.7,qb,0.0,0.03888888888888889
 David Blough,0.6,qb,0.0,0.03333333333333333
 Kellen Mond,0.2,qb,0.0,0.011111111111111112
-Nathan Peterman,0.2,qb,0.0,0.011111111111111112
 Brett Rypien,0.0,qb,0.0,0.0
-Jacob Eason,0.0,qb,0.0,0.0
-Trace McSorley,0.0,qb,0.0,0.0
 Kurt Benkert,-0.1,qb,0.0,-0.005555555555555556
 Chase Daniel,-0.2,qb,0.0,-0.011111111111111112
 Davis Webb,-0.3,qb,0.0,-0.016666666666666666
@@ -114,7 +109,6 @@ Tony Pollard,123.6,rb,1.93,6.866666666666666
 Michael Carter,118.4,rb,1.85,6.577777777777778
 Rashaad Penny,115.7,rb,1.81,6.427777777777778
 Chuba Hubbard,112.6,rb,1.76,6.2555555555555555
-Devonta Freeman,112.6,rb,1.76,6.2555555555555555
 Saquon Barkley,107.6,rb,1.68,5.977777777777778
 Devontae Booker,104.1,rb,1.63,5.783333333333333
 Rhamondre Stevenson,100.9,rb,1.58,5.605555555555556
@@ -131,7 +125,6 @@ Kareem Hunt,88.0,rb,1.38,4.888888888888889
 Boston Scott,85.6,rb,1.34,4.7555555555555555
 D'Ernest Johnson,85.1,rb,1.33,4.727777777777778
 D'Onta Foreman,84.9,rb,1.33,4.716666666666667
-J.D. McKissic,84.9,rb,1.33,4.716666666666667
 Brandon Bolden,83.1,rb,1.3,4.616666666666666
 Ty Johnson,83.0,rb,1.3,4.611111111111111
 Zack Moss,82.2,rb,1.29,4.566666666666666
@@ -177,7 +170,6 @@ JaMycal Hasty,26.5,rb,0.43,1.4722222222222223
 Trey Sermon,25.3,rb,0.41,1.4055555555555557
 Royce Freeman,24.6,rb,0.4,1.3666666666666667
 Corey Clement,22.9,rb,0.37,1.2722222222222221
-Jerick McKinnon,22.9,rb,0.37,1.2722222222222221
 Adrian Peterson,22.6,rb,0.37,1.2555555555555555
 Eno Benjamin,22.0,rb,0.36,1.2222222222222223
 Jermar Jefferson,21.7,rb,0.35,1.2055555555555555
@@ -191,7 +183,6 @@ C.J. Ham,15.9,rb,0.26,0.8833333333333333
 Qadree Ollison,15.7,rb,0.26,0.8722222222222222
 Patrick Taylor Jr.,15.2,rb,0.25,0.8444444444444444
 Larry Rountree III,14.6,rb,0.24,0.8111111111111111
-Alec Ingold,14.6,rb,0.24,0.8111111111111111
 J.J. Taylor,14.5,rb,0.24,0.8055555555555556
 Godwin Igwebuike,14.0,rb,0.24,0.7777777777777778
 Ty Montgomery II,13.9,rb,0.23,0.7722222222222223
@@ -205,7 +196,6 @@ Marlon Mack,10.9,rb,0.19,0.6055555555555556
 Ryquell Armstead,9.6,rb,0.17,0.5333333333333333
 Deon Jackson,9.1,rb,0.16,0.5055555555555555
 Andy Janovich,8.9,rb,0.16,0.49444444444444446
-JaQuan Hardy,8.9,rb,0.16,0.49444444444444446
 Keith Smith,8.7,rb,0.15,0.4833333333333333
 Alex Armah Jr.,8.2,rb,0.15,0.4555555555555555
 Johnny Stanton IV,7.2,rb,0.13,0.4
@@ -226,19 +216,14 @@ Gabe Nabers,2.5,rb,0.06,0.1388888888888889
 Jaylen Samuels,2.3,rb,0.05,0.12777777777777777
 Scottie Phillips,2.2,rb,0.05,0.12222222222222223
 Patrick Laird,2.1,rb,0.05,0.11666666666666667
-Adam Prentice,2.1,rb,0.05,0.11666666666666667
 Nick Bawden,2.0,rb,0.05,0.1111111111111111
-Raheem Mostert,2.0,rb,0.05,0.1111111111111111
 Darrynton Evans,1.8,rb,0.05,0.1
 Derek Watt,1.6,rb,0.04,0.08888888888888889
-Reggie Bonnafon,1.6,rb,0.04,0.08888888888888889
 Trey Ragas,1.5,rb,0.04,0.08333333333333333
 Anthony McFarland Jr.,1.4,rb,0.04,0.07777777777777778
 John Kelly Jr.,1.3,rb,0.04,0.07222222222222223
-Cam Akers,1.3,rb,0.04,0.07222222222222223
 Jacques Patrick,1.2,rb,0.04,0.06666666666666667
 Buddy Howell,1.1,rb,0.04,0.061111111111111116
-Mekhi Sargent,1.1,rb,0.04,0.061111111111111116
 Gary Brightwell,1.0,rb,0.03,0.05555555555555555
 Ryan Nall,0.8,rb,0.03,0.044444444444444446
 Damarea Crockett,0.7,rb,0.03,0.03888888888888889
@@ -246,36 +231,6 @@ Jake Funk,0.5,rb,0.03,0.027777777777777776
 Devine Ozigbo,0.4,rb,0.02,0.022222222222222223
 Nathan Cottrell,0.3,rb,0.02,0.016666666666666666
 Andrew Beck,0.0,rb,0.02,0.0
-Cullen Gillaspia,0.0,rb,0.02,0.0
-Sutton Smith,0.0,rb,0.02,0.0
-Darwin Thompson,0.0,rb,0.02,0.0
-Darius Bradwell,0.0,rb,0.02,0.0
-LeVante Bellamy,0.0,rb,0.02,0.0
-Artavis Pierce,0.0,rb,0.02,0.0
-Sandro Platzgummer,0.0,rb,0.02,0.0
-Sewo Olonilua,0.0,rb,0.02,0.0
-Kirk Merritt,0.0,rb,0.02,0.0
-Pooka Williams Jr.,0.0,rb,0.02,0.0
-J.K. Dobbins,0.0,rb,0.02,0.0
-Chris Myarick,0.0,rb,0.02,0.0
-Spencer Brown,0.0,rb,0.02,0.0
-Josh Johnson,0.0,rb,0.02,0.0
-B.J. Emmons,0.0,rb,0.02,0.0
-Nick Ralston,0.0,rb,0.02,0.0
-Tory Carter,0.0,rb,0.02,0.0
-Gerrid Doaks,0.0,rb,0.02,0.0
-Avery Williams,0.0,rb,0.02,0.0
-Nick Bellore,0.0,rb,0.02,0.0
-Taiwan Jones,0.0,rb,0.02,0.0
-Kenjon Barner,0.0,rb,0.02,0.0
-Elijah McGuire,0.0,rb,0.02,0.0
-Tarik Cohen,0.0,rb,0.02,0.0
-Brian Hill,0.0,rb,0.02,0.0
-Brandin Bryant,0.0,rb,0.02,0.0
-J.P. Holtz,0.0,rb,0.02,0.0
-Trey Edmunds,0.0,rb,0.02,0.0
-Jordan Wilkins,0.0,rb,0.02,0.0
-Jason Cabinda,0.0,rb,0.02,0.0
 Nate McCrary,-0.1,rb,0.02,-0.005555555555555556
 Khari Blasingame,-1.0,rb,0.0,-0.05555555555555555
 Trenton Cannon,-1.6,rb,0.0,-0.08888888888888889
@@ -299,7 +254,6 @@ Tee Higgins,145.1,wr,2.62,8.06111111111111
 DJ Moore,144.5,wr,2.61,8.027777777777779
 Chris Godwin,144.4,wr,2.61,8.022222222222222
 Jaylen Waddle,141.8,wr,2.56,7.877777777777778
-Brandin Cooks,141.8,wr,2.56,7.877777777777778
 Darnell Mooney,138.7,wr,2.5,7.705555555555555
 Amon-Ra St. Brown,137.3,wr,2.48,7.627777777777778
 Terry McLaurin,136.5,wr,2.46,7.583333333333333
@@ -321,12 +275,10 @@ DeAndre Hopkins,105.2,wr,1.89,5.844444444444445
 Tim Patrick,103.4,wr,1.86,5.7444444444444445
 Jakobi Meyers,103.3,wr,1.86,5.738888888888889
 A.J. Green,102.8,wr,1.85,5.711111111111111
-Cedrick Wilson Jr.,102.8,wr,1.85,5.711111111111111
 Allen Lazard,102.5,wr,1.84,5.694444444444445
 Russell Gage,97.0,wr,1.74,5.388888888888889
 Elijah Moore,95.2,wr,1.71,5.288888888888889
 Courtland Sutton,92.2,wr,1.66,5.122222222222223
-Robert Woods,92.2,wr,1.66,5.122222222222223
 Gabe Davis,90.9,wr,1.63,5.050000000000001
 Emmanuel Sanders,89.7,wr,1.61,4.983333333333333
 Robbie Chosen,85.5,wr,1.54,4.75
@@ -340,7 +292,6 @@ Cole Beasley,77.3,wr,1.39,4.294444444444444
 Deonte Harty,77.1,wr,1.38,4.283333333333333
 Donovan Peoples-Jones,75.7,wr,1.36,4.205555555555556
 Braxton Berrios,75.1,wr,1.35,4.172222222222222
-Bryan Edwards,75.1,wr,1.35,4.172222222222222
 Quez Watkins,73.0,wr,1.31,4.055555555555555
 Corey Davis,71.2,wr,1.28,3.9555555555555557
 Nick Westbrook-Ikhine,69.6,wr,1.25,3.8666666666666663
@@ -360,7 +311,6 @@ Jamison Crowder,58.7,wr,1.05,3.261111111111111
 Jauan Jennings,58.2,wr,1.04,3.2333333333333334
 Rashod Bateman,57.5,wr,1.03,3.1944444444444446
 Michael Gallup,56.5,wr,1.01,3.138888888888889
-Zach Pascal,56.5,wr,1.01,3.138888888888889
 DeSean Jackson,55.8,wr,1.0,3.0999999999999996
 Tre'Quan Smith,55.7,wr,0.99,3.0944444444444446
 Rondale Moore,55.1,wr,0.98,3.0611111111111113
@@ -371,7 +321,6 @@ T.Y. Hilton,51.1,wr,0.91,2.838888888888889
 Keelan Cole Sr.,50.9,wr,0.91,2.8277777777777775
 Nico Collins,50.6,wr,0.9,2.8111111111111113
 Julio Jones,49.4,wr,0.88,2.7444444444444445
-Laquon Treadwell,49.4,wr,0.88,2.7444444444444445
 Allen Robinson II,49.0,wr,0.87,2.7222222222222223
 Jerry Jeudy,47.0,wr,0.84,2.611111111111111
 Mack Hollins,46.3,wr,0.82,2.572222222222222
@@ -380,9 +329,7 @@ Danny Amendola,44.8,wr,0.8,2.488888888888889
 Demarcus Robinson,44.4,wr,0.79,2.466666666666667
 Devin Duvernay,44.2,wr,0.79,2.4555555555555557
 Sammy Watkins,43.4,wr,0.77,2.411111111111111
-Kadarius Toney,43.4,wr,0.77,2.411111111111111
 Darius Slayton,42.6,wr,0.76,2.3666666666666667
-Chris Conley,42.6,wr,0.76,2.3666666666666667
 James Washington,41.8,wr,0.74,2.322222222222222
 Sterling Shepard,41.7,wr,0.74,2.316666666666667
 Calvin Ridley,40.1,wr,0.71,2.227777777777778
@@ -400,20 +347,17 @@ Cam Sims,33.8,wr,0.6,1.8777777777777775
 Rashard Higgins,33.5,wr,0.59,1.8611111111111112
 Malik Turner,32.9,wr,0.58,1.8277777777777777
 Isaiah McKenzie,32.5,wr,0.57,1.8055555555555556
-Ashton Dulin,32.5,wr,0.57,1.8055555555555556
 Brandon Zylstra,31.0,wr,0.55,1.7222222222222223
 John Ross,30.0,wr,0.53,1.6666666666666667
 Jakeem Grant Sr.,28.5,wr,0.5,1.5833333333333333
 Isaiah Ford,28.1,wr,0.49,1.5611111111111111
 Greg Ward,27.6,wr,0.48,1.5333333333333334
 DJ Chark Jr.,27.4,wr,0.48,1.5222222222222221
-Tavon Austin,27.4,wr,0.48,1.5222222222222221
 Ray-Ray McCloud III,27.2,wr,0.48,1.511111111111111
 Ihmir Smith-Marsette,23.6,wr,0.41,1.3111111111111111
 Kendall Hinton,23.5,wr,0.41,1.3055555555555556
 Anthony Schwartz,23.4,wr,0.41,1.2999999999999998
 Tajae Sharpe,23.0,wr,0.4,1.2777777777777777
-Albert Wilson,23.0,wr,0.4,1.2777777777777777
 Breshad Perriman,22.4,wr,0.39,1.2444444444444445
 Parris Campbell,22.2,wr,0.39,1.2333333333333334
 James Proche II,20.2,wr,0.35,1.1222222222222222
@@ -421,27 +365,22 @@ JuJu Smith-Schuster,19.8,wr,0.34,1.1
 Noah Brown,18.4,wr,0.32,1.0222222222222221
 Dee Eskridge,18.3,wr,0.32,1.0166666666666666
 KhaDarel Hodge,17.7,wr,0.3,0.9833333333333333
-Mohamed Sanu Sr.,17.7,wr,0.3,0.9833333333333333
 N'Keal Harry,16.4,wr,0.28,0.911111111111111
 Kristian Wilkerson,16.2,wr,0.28,0.8999999999999999
 Dyami Brown,16.1,wr,0.28,0.8944444444444445
 Marcus Johnson,15.8,wr,0.27,0.8777777777777778
-Terrace Marshall Jr.,15.8,wr,0.27,0.8777777777777778
 Dante Pettis,15.3,wr,0.26,0.8500000000000001
 Trent Sherfield,14.7,wr,0.25,0.8166666666666667
 Scott Miller,14.1,wr,0.24,0.7833333333333333
 Denzel Mims,13.3,wr,0.22,0.7388888888888889
-Ben Skowronek,13.3,wr,0.22,0.7388888888888889
 Kenny Stills,12.9,wr,0.22,0.7166666666666667
 Tom Kennedy,12.4,wr,0.21,0.6888888888888889
 Equanimeous St. Brown,11.2,wr,0.19,0.6222222222222222
-Jeff Smith,11.2,wr,0.19,0.6222222222222222
 Phillip Dorsett II,11.0,wr,0.18,0.6111111111111112
 Dez Fitzpatrick,10.9,wr,0.18,0.6055555555555556
 Collin Johnson,10.5,wr,0.17,0.5833333333333334
 Trinity Benson,10.3,wr,0.17,0.5722222222222223
 Shi Smith,10.1,wr,0.17,0.5611111111111111
-Chris Hogan,10.1,wr,0.17,0.5611111111111111
 Auden Tate,9.9,wr,0.16,0.55
 Josh Gordon,9.2,wr,0.15,0.5111111111111111
 Cameron Batson,9.0,wr,0.15,0.5
@@ -449,15 +388,12 @@ Anthony Miller,8.5,wr,0.14,0.4722222222222222
 Dezmon Patmon,8.1,wr,0.13,0.44999999999999996
 Preston Williams,7.8,wr,0.13,0.43333333333333335
 KJ Hamler,7.4,wr,0.12,0.41111111111111115
-Andre Roberts,7.4,wr,0.12,0.41111111111111115
 Dede Westbrook,6.8,wr,0.11,0.37777777777777777
 Dax Milne,6.4,wr,0.1,0.35555555555555557
-Ja'Marcus Bradley,6.4,wr,0.1,0.35555555555555557
 Brandon Powell,6.0,wr,0.09,0.3333333333333333
 Penny Hart,5.9,wr,0.09,0.3277777777777778
 C.J. Board,5.7,wr,0.09,0.31666666666666665
 Amari Rodgers,5.6,wr,0.09,0.3111111111111111
-Jason Moore Jr.,5.6,wr,0.09,0.3111111111111111
 Alex Erickson,5.5,wr,0.08,0.3055555555555556
 Jaelon Darden,5.4,wr,0.08,0.30000000000000004
 Mike Thomas,5.2,wr,0.08,0.2888888888888889
@@ -466,84 +402,30 @@ Trent Taylor,4.1,wr,0.06,0.22777777777777775
 Gunner Olszewski,4.0,wr,0.06,0.2222222222222222
 Greg Dortch,3.9,wr,0.05,0.21666666666666667
 Juwann Winfree,3.8,wr,0.05,0.2111111111111111
-Kevin White,3.8,wr,0.05,0.2111111111111111
-Curtis Samuel,3.8,wr,0.05,0.2111111111111111
-Willie Snead IV,3.8,wr,0.05,0.2111111111111111
 Pharoh Cooper,3.6,wr,0.05,0.2
-D.J. Montgomery,3.6,wr,0.05,0.2
-J.J. Arcega-Whiteside,3.6,wr,0.05,0.2
 Seth Williams,3.4,wr,0.05,0.18888888888888888
-Trenton Irwin,3.4,wr,0.05,0.18888888888888888
 Cody White,3.3,wr,0.04,0.18333333333333332
-Cody Hollister,3.3,wr,0.04,0.18333333333333332
 KJ Hill Jr.,3.0,wr,0.04,0.16666666666666666
 Jake Kumerow,2.8,wr,0.03,0.15555555555555556
 Mike Strachan,2.6,wr,0.03,0.14444444444444446
 Christian Blake,2.5,wr,0.03,0.1388888888888889
 Marcus Kemp,2.4,wr,0.03,0.13333333333333333
 Tylan Wallace,2.3,wr,0.03,0.12777777777777777
-Dazz Newsome,2.3,wr,0.03,0.12777777777777777
 Keith Kirkwood,1.7,wr,0.01,0.09444444444444444
-David Sills,1.7,wr,0.01,0.09444444444444444
-Davion Davis,1.7,wr,0.01,0.09444444444444444
 Tyron Billy-Johnson,1.6,wr,0.01,0.08888888888888889
 Frank Darby,1.4,wr,0.01,0.07777777777777778
-Stanley Morgan Jr.,1.4,wr,0.01,0.07777777777777778
-Tyrell Williams,1.4,wr,0.01,0.07777777777777778
 Kirk Merritt,1.3,wr,0.01,0.07222222222222223
-Andy Isabella,1.3,wr,0.01,0.07222222222222223
 C.J. Saunders,1.1,wr,0.0,0.061111111111111116
 Jaydon Mickens,1.0,wr,0.0,0.05555555555555555
-Tarik Black,1.0,wr,0.0,0.05555555555555555
-Marvin Hall,1.0,wr,0.0,0.05555555555555555
 Tommylee Lewis,0.7,wr,0.0,0.03888888888888889
 Miles Boykin,0.6,wr,0.0,0.03333333333333333
 Easop Winston Jr.,0.5,wr,0.0,0.027777777777777776
-Keke Coutee,0.5,wr,0.0,0.027777777777777776
 Maurice Ffrench,0.3,wr,0.0,0.016666666666666666
 Nsimba Webster,0.0,wr,0.0,0.0
-Antonio Gandy-Golden,0.0,wr,0.0,0.0
-Quinton Bell,0.0,wr,0.0,0.0
-Cody Thompson,0.0,wr,0.0,0.0
-John Hightower,0.0,wr,0.0,0.0
-Marquez Stevenson,0.0,wr,0.0,0.0
-Tutu Atwell,0.0,wr,0.0,0.0
-Pooka Williams Jr.,0.0,wr,0.0,0.0
-Dan Chisena,0.0,wr,0.0,0.0
-Josh Hammond,0.0,wr,0.0,0.0
-Matt Cole,0.0,wr,0.0,0.0
-Mason Kinsey,0.0,wr,0.0,0.0
-Tyrie Cleveland,0.0,wr,0.0,0.0
-Isaiah Coulter,0.0,wr,0.0,0.0
-Michael Bandy,0.0,wr,0.0,0.0
-Dillon Stoner,0.0,wr,0.0,0.0
-Landen Akers,0.0,wr,0.0,0.0
-Jacob Harris,0.0,wr,0.0,0.0
-Jalen Camp,0.0,wr,0.0,0.0
-Brandon Smith,0.0,wr,0.0,0.0
-Kawaan Baker,0.0,wr,0.0,0.0
-Osirus Mitchell,0.0,wr,0.0,0.0
-John Brown,0.0,wr,0.0,0.0
-Matthew Slater,0.0,wr,0.0,0.0
-David Moore,0.0,wr,0.0,0.0
-Ryan Switzer,0.0,wr,0.0,0.0
-Rodney Adams,0.0,wr,0.0,0.0
-Justin Hardee,0.0,wr,0.0,0.0
-JoJo Natson,0.0,wr,0.0,0.0
-Vyncint Smith,0.0,wr,0.0,0.0
-Jordan Veasy,0.0,wr,0.0,0.0
-Damion Ratley,0.0,wr,0.0,0.0
-Daurice Fountain,0.0,wr,0.0,0.0
-River Cracraft,0.0,wr,0.0,0.0
-Ty Montgomery II,0.0,wr,0.0,0.0
-Devin Smith,0.0,wr,0.0,0.0
-Allen Hurns,0.0,wr,0.0,0.0
-Geronimo Allison,0.0,wr,0.0,0.0
 Alex Bachman,-0.3,wr,0.0,-0.016666666666666666
 Malik Taylor,-0.6,wr,0.0,-0.03333333333333333
 Racey McMath,-1.2,wr,0.0,-0.06666666666666667
 Travis Benjamin,-2.0,wr,0.0,-0.1111111111111111
-J.J. Koski,-2.0,wr,0.0,-0.1111111111111111
 Diontae Spencer,-4.3,wr,0.0,-0.23888888888888887
 Mark Andrews,194.1,te,5.26,10.783333333333333
 Travis Kelce,170.8,te,4.63,9.488888888888889
@@ -579,11 +461,8 @@ Dan Arnold,40.8,te,1.15,2.2666666666666666
 Juwan Johnson,39.9,te,1.13,2.216666666666667
 Jonnu Smith,39.4,te,1.12,2.1888888888888887
 Ricky Seals-Jones,39.1,te,1.11,2.1722222222222225
-Anthony Firkser,39.1,te,1.11,2.1722222222222225
 Geoff Swaim,39.0,te,1.11,2.1666666666666665
-Donald Parham Jr.,39.0,te,1.11,2.1666666666666665
 Hayden Hurst,38.1,te,1.08,2.1166666666666667
-Ryan Griffin,38.1,te,1.08,2.1166666666666667
 Jimmy Graham,36.7,te,1.04,2.038888888888889
 Josiah Deguara,36.5,te,1.04,2.0277777777777777
 Adam Trautman,36.3,te,1.03,2.0166666666666666
@@ -618,7 +497,6 @@ Jacob Hollister,11.5,te,0.37,0.6388888888888888
 Ross Dwelley,11.1,te,0.36,0.6166666666666667
 Adam Shaheen,11.0,te,0.36,0.6111111111111112
 Antony Auclair,10.7,te,0.35,0.5944444444444444
-Eric Saubert,10.7,te,0.35,0.5944444444444444
 Kylen Granson,10.6,te,0.35,0.5888888888888889
 Tommy Sweeney,10.4,te,0.34,0.5777777777777778
 Chris Herndon IV,10.0,te,0.33,0.5555555555555556
@@ -633,76 +511,36 @@ Luke Farrell,5.6,te,0.21,0.3111111111111111
 Charlie Woerner,5.2,te,0.2,0.2888888888888889
 Tre' McKitty,4.5,te,0.18,0.25
 Parker Hesse,4.3,te,0.18,0.23888888888888887
-Darren Fells,4.3,te,0.18,0.23888888888888887
 Garrett Griffin,3.9,te,0.17,0.21666666666666667
 Kendall Blanton,3.7,te,0.16,0.20555555555555557
 Kenny Yeboah,3.6,te,0.16,0.2
 Tyler Davis,3.5,te,0.16,0.19444444444444445
-Trevon Wesco,3.5,te,0.16,0.19444444444444445
 Shane Zylstra,3.4,te,0.15,0.18888888888888888
-Dominique Dafney,3.4,te,0.15,0.18888888888888888
 Kaden Smith,3.3,te,0.15,0.18333333333333332
-Colby Parkinson,3.3,te,0.15,0.18333333333333332
 Jeremy Sprinkle,3.1,te,0.15,0.17222222222222222
-Tommy Hudson,3.1,te,0.15,0.17222222222222222
 Daniel Brown,2.9,te,0.14,0.1611111111111111
 Jack Stoll,2.2,te,0.12,0.12222222222222223
 Mitchell Wilcox,1.6,te,0.11,0.08888888888888889
-Cethan Carter,1.6,te,0.11,0.08888888888888889
 Derek Carrier,1.3,te,0.1,0.07222222222222223
 Luke Stocker,1.2,te,0.09,0.06666666666666667
 Richard Rodgers,1.1,te,0.09,0.061111111111111116
 Demetrius Harris,1.0,te,0.09,0.05555555555555555
 Johnny Mundt,0.9,te,0.09,0.05
-Brycen Hopkins,0.9,te,0.09,0.05
 Hunter Long,0.8,te,0.08,0.044444444444444446
-Ethan Wolf,0.8,te,0.08,0.044444444444444446
-Kevin Rader,0.8,te,0.08,0.044444444444444446
 Eric Tomlinson,0.7,te,0.08,0.03888888888888889
 Nick Boyle,0.2,te,0.07,0.011111111111111112
 Matthew Orzech,0.0,te,0.06,0.0
-Jared Pinkney,0.0,te,0.06,0.0
-Antonio Gandy-Golden,0.0,te,0.06,0.0
-Andrew Beck,0.0,te,0.06,0.0
-Jody Fortson,0.0,te,0.06,0.0
-Feleipe Franks,0.0,te,0.06,0.0
-Farrod Green,0.0,te,0.06,0.0
-Stephen Sullivan,0.0,te,0.06,0.0
-Noah Togiai,0.0,te,0.06,0.0
-Ben Ellefson,0.0,te,0.06,0.0
-Giovanni Ricci,0.0,te,0.06,0.0
-Reggie Gilliam,0.0,te,0.06,0.0
-Rashod Berry,0.0,te,0.06,0.0
-Miller Forristall,0.0,te,0.06,0.0
-Jake Hausmann,0.0,te,0.06,0.0
-Nick Ralston,0.0,te,0.06,0.0
-Briley Moore,0.0,te,0.06,0.0
-Jacob Harris,0.0,te,0.06,0.0
-Sammis Reyes,0.0,te,0.06,0.0
-Clark Harris,0.0,te,0.06,0.0
-Darrell Daniels,0.0,te,0.06,0.0
-J.P. Holtz,0.0,te,0.06,0.0
-Deon Yelder,0.0,te,0.06,0.0
-Codey McElroy,0.0,te,0.06,0.0
-Taysom Hill,0.0,te,0.06,0.0
-Colin Thompson,0.0,te,0.06,0.0
-James Winchester,0.0,te,0.06,0.0
-Patrick Scales,0.0,te,0.06,0.0
-Andrew DePaola,0.0,te,0.06,0.0
 Daniel Helm,-0.1,te,0.06,-0.005555555555555556
 Daniel Carlson,174.0,k,2.32,9.666666666666666
 Nick Folk,171.0,k,2.27,9.5
 Justin Tucker,162.0,k,2.11,9.0
-Chris Boswell,162.0,k,2.11,9.0
 Matt Gay,159.0,k,2.06,8.833333333333334
 Greg Joseph,156.0,k,2.01,8.666666666666666
 Matt Prater,154.0,k,1.98,8.555555555555555
-Evan McPherson,154.0,k,1.98,8.555555555555555
 Jake Elliott,150.0,k,1.91,8.333333333333334
 Dustin Hopkins,147.0,k,1.86,8.166666666666666
 Tyler Bass,143.0,k,1.79,7.944444444444445
 Greg Zuerlein,140.0,k,1.74,7.777777777777778
-Harrison Butker,140.0,k,1.74,7.777777777777778
 Ryan Succop,138.0,k,1.71,7.666666666666667
 Mason Crosby,134.0,k,1.64,7.444444444444445
 Randy Bullock,130.0,k,1.58,7.222222222222222
@@ -724,7 +562,6 @@ Riley Patterson,59.0,k,0.38,3.2777777777777777
 Matt Ammendola,55.0,k,0.32,3.0555555555555554
 Rodrigo Blankenship,45.0,k,0.15,2.5
 Brian Johnson,42.0,k,0.1,2.3333333333333335
-Austin Seibert,42.0,k,0.1,2.3333333333333335
 Eddy Pineiro,38.0,k,0.03,2.111111111111111
 Tristan Vizcaino,29.0,k,0.0,1.6111111111111112
 Aldrick Rosas,22.0,k,0.0,1.2222222222222223
@@ -737,10 +574,6 @@ Josh Lambo,5.0,k,0.0,0.2777777777777778
 Chris Naggar,4.0,k,0.0,0.2222222222222222
 Cody Parkey,3.0,k,0.0,0.16666666666666666
 Cameron Nizialek,0.0,k,0.0,0.0
-JJ Molson,0.0,k,0.0,0.0
-Alex Kessman,0.0,k,0.0,0.0
-Ty Long,0.0,k,0.0,0.0
-Michael Palardy,0.0,k,0.0,0.0
 Dallas Cowboys,185.0,dst,3.16,10.277777777777779
 New England Patriots,158.0,dst,2.32,8.777777777777779
 Miami Dolphins,155.0,dst,2.22,8.61111111111111
@@ -757,7 +590,6 @@ Denver Broncos,119.0,dst,1.09,6.611111111111111
 San Francisco 49ers,118.0,dst,1.06,6.555555555555555
 Green Bay Packers,117.0,dst,1.03,6.5
 Philadelphia Eagles,111.0,dst,0.84,6.166666666666667
-Pittsburgh Steelers,111.0,dst,0.84,6.166666666666667
 Cincinnati Bengals,108.0,dst,0.74,6.0
 Chicago Bears,105.0,dst,0.65,5.833333333333333
 Cleveland Browns,104.0,dst,0.62,5.777777777777778
@@ -769,7 +601,5 @@ New York Giants,86.0,dst,0.05,4.777777777777778
 Baltimore Ravens,85.0,dst,0.02,4.722222222222222
 Los Angeles Chargers,78.0,dst,0.0,4.333333333333333
 Las Vegas Raiders,65.0,dst,0.0,3.611111111111111
-Atlanta Falcons,65.0,dst,0.0,3.611111111111111
 Jacksonville Jaguars,64.0,dst,0.0,3.5555555555555554
 New York Jets,58.0,dst,0.0,3.2222222222222223
-Detroit Lions,58.0,dst,0.0,3.2222222222222223
