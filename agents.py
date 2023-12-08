@@ -86,6 +86,7 @@ class LongTermAgent:
         self.vals = vals
         self.team = team
         self.remaining_budget = 20
+        self.total_score = 0
 
     def player_prices(self, history):
         '''
@@ -127,6 +128,19 @@ class LongTermAgent:
 
         return bids
 
+    def calculate_points(self, history):
+        '''
+        list -> None: Calculates the total perofrmance scores in the past week for all players on self.team
+        automatically adds this to self.total_score
+        '''
+        week_results = pd.read_csv(f"data/2022/by_weeks/week_{history.round()}.csv", index_col=0)
+        weekly_score = 0
+        for player in self.team:
+            if player in week_results["Player"]:
+                weekly_score += week_results.loc[player]["FPTS"]
+                self.vals[player] = player_df.loc[player]["FPTS"]/20.0
+        self.total_score += weekly_score
+
 class AFKAgent:
     '''
     Agent that participates in the draft but does not make any decisions
@@ -136,6 +150,7 @@ class AFKAgent:
         self.vals = vals
         self.team = team
         self.remaining_budget = 20
+        self.total_score = 0
 
     def player_prices(self, history):
         player_prices = {}
@@ -146,6 +161,18 @@ class AFKAgent:
     def player_bids(self, history):
         return {}
 
+    def calculate_points(self, history):
+        '''
+        list -> None: Calculates the total perofrmance scores in the past week for all players on self.team
+        automatically adds this to self.total_score
+        '''
+        week_results = pd.read_csv(f"data/2022/by_weeks/week_{history.round()}.csv", index_col=0)
+        weekly_score = 0
+        for player in self.team:
+            if player in week_results["Player"]:
+                weekly_score += week_results.loc[player]["FPTS"]
+                self.vals[player] = player_df.loc[player]["FPTS"]/20.0
+        self.total_score += weekly_score
 
 class RandomAgent:
     '''
@@ -156,6 +183,7 @@ class RandomAgent:
         self.vals = vals
         self.team = team
         self.remaining_budget = 20
+        self.total_score = 0
 
     def player_prices(self, history):
         '''
@@ -191,6 +219,19 @@ class RandomAgent:
                 bids[player] = self.vals[player]
 
         return bids
+    
+    def calculate_points(self, history):
+        '''
+        list -> None: Calculates the total perofrmance scores in the past week for all players on self.team
+        automatically adds this to self.total_score
+        '''
+        week_results = pd.read_csv(f"data/2022/by_weeks/week_{history.round()}.csv", index_col=0)
+        weekly_score = 0
+        for player in self.team:
+            if player in week_results["Player"]:
+                weekly_score += week_results.loc[player]["FPTS"]
+                self.vals[player] = player_df.loc[player]["FPTS"]/20.0
+        self.total_score += weekly_score
 
 class SmartAgent:
     '''
@@ -201,6 +242,7 @@ class SmartAgent:
         self.vals = vals
         self.team = team
         self.remaining_budget = 20
+        self.total_score = 0
 
     def player_prices(self, history):
         '''
@@ -241,3 +283,16 @@ class SmartAgent:
                 bids[player] = self.vals[player]
 
         return bids
+    
+    def calculate_points(self, history):
+        '''
+        list -> None: Calculates the total perofrmance scores in the past week for all players on self.team
+        automatically adds this to self.total_score
+        '''
+        week_results = pd.read_csv(f"data/2022/by_weeks/week_{history.round()}.csv", index_col=0)
+        weekly_score = 0
+        for player in self.team:
+            if player in week_results["Player"]:
+                weekly_score += week_results.loc[player]["FPTS"]
+                self.vals[player] = player_df.loc[player]["FPTS"]/20.0
+        self.total_score += weekly_score
