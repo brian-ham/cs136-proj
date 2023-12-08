@@ -98,12 +98,27 @@ def team_selection_draft(agents, players):
 
     return teams
 
-def price_fluc():
+def price_fluc(agents, prev_teams, last_week_prices):
     '''
     list -> list: Creates price fluctuations for players based on week's performance
     '''
-    # TODO
-    pass
+    
+    new_prices = last_week_prices.copy()
+
+    for (idx, player) in last_week_prices.iterrows():
+        # Assumes agents are listed in the same order as their temas in the previous week.
+        prev_count = 0
+        cur_count = 0
+        for i in range(len(agents)):
+            if idx in agents[i].teams:
+                cur_count += 1
+            if idx in prev_teams[i]:
+                prev_count += 1
+            
+        new_prices.loc[idx]["Price"] *= (cur_count / prev_count)
+
+
+    return new_prices
 
 if __name__ == "__main__":
     # Just for testing purposes. Can delete 
