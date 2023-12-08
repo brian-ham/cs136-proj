@@ -8,10 +8,10 @@ class ShortTermAgent:
     '''
     Agent that makes reactionary decisions, i.e. values players based on their performance in just the past week
     '''
-    def __init__(self, vals, team):
+    def __init__(self, vals):
         # first column: ID, second column: PERCEIVED value
         self.vals = vals
-        self.team = team
+        self.team = []
         self.budget = 20
 
     def player_prices(self, history):
@@ -27,7 +27,7 @@ class ShortTermAgent:
         '''
         Should return a dict of players -> prices that this agent wants to buy.
         '''
-        player_df = pd.read_csv("data/2022/by_weeks/week_"+str(len(history) + 1), index_col=0)
+        player_df = pd.read_csv(f"data/2022/by_weeks/week_{history.round()}.csv", index_col=0)
 
         learning_rate = 0.9
         for player in self.vals:
@@ -35,7 +35,7 @@ class ShortTermAgent:
 
         bids = {}
         for player in self.vals:
-            if self.vals[player] > history[player]:
+            if self.vals[player] > history[-1][player]:
                 bids[player] = self.vals[player]
 
         return bids
@@ -68,7 +68,7 @@ class LongTerm:
             player_prices[player] = self.vals[player]
         return player_prices
 
-    def player_bids(self, round, history):
+    def player_bids(self, history):
         '''
         Should return a dict of players -> prices that this agent wants to buy.
         '''
