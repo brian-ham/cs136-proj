@@ -11,7 +11,7 @@ class ShortTermAgent:
     def __init__(self, vals):
         # first column: ID, second column: PERCEIVED value
         self.vals = vals
-        self.team = team
+        self.team = []
         self.remaining_budget = 20
 
     def player_prices(self, history):
@@ -31,24 +31,24 @@ class ShortTermAgent:
 
         learning_rate = 0.9
         for player in self.vals:
-            if player in player_df.index():
+            if player in player_df.index:
                 self.vals[player] = (1 - learning_rate)*self.vals[player] + learning_rate*player_df.loc[player]["FPTS"]/20.0
             else:
                 self.vals[player] = 0
 
         players_with_roles = {}
         for player in self.team:
-            if player in player_df.index():
+            if player in player_df.index:
                 players_with_roles[player] = player_df.loc[player]["Position"]
 
         bids = {}
         for player in self.vals:
             bid = False
-            if player in player_df.index():
+            if player in player_df.index:
                 comparable_players = [players_with_roles[owned_player] == player_df.loc[player]["Position"] for owned_player in players_with_roles]
                 for comparable_player in comparable_players:
                     if self.vals[player] > self.vals[comparable_player]:
-                        if history[-1].loc[player]["Price"] < history[-1].loc[comparable_player]["Price"]:
+                        if history[-1][player] < history[-1][comparable_player]:
                             bid = True
                 bids[player] = self.vals[player]
 
@@ -67,10 +67,10 @@ class LongTerm:
     Agent that makes decisions based on long-term performance, i.e. sticks to past season's performance for valuation
     '''
 
-    def __init__(self, vals, team):
+    def __init__(self, vals):
         # first column: ID, second column: PERCEIVED value
         self.vals = vals
-        self.team = team
+        self.team = []
         self.remaining_budget = 20
 
     def player_prices(self, history):
@@ -90,24 +90,24 @@ class LongTerm:
 
         learning_rate = 0.05
         for player in self.vals:
-            if player in player_df.index():
+            if player in player_df.index:
                 self.vals[player] = (1 - learning_rate)*self.vals[player] + learning_rate*player_df.loc[player]["FPTS"]/20.0
             else:
                 self.vals[player] = 0
 
         players_with_roles = {}
         for player in self.team:
-            if player in player_df.index(): 
+            if player in player_df.index: 
                 players_with_roles[player] = player_df.loc[player]["Position"]
 
         bids = {}
         for player in self.vals:
             bid = False
-            if player in player_df.index():
+            if player in player_df.index:
                 comparable_players = [players_with_roles[owned_player] == player_df.loc[player]["Position"] for owned_player in players_with_roles]
                 for comparable_player in comparable_players:
                     if self.vals[player] > self.vals[comparable_player]:
-                        if history[-1].loc[player]["Price"] < self.remaining_budget + history[-1].loc[comparable_player]["Price"]:
+                        if history[-1][player] < self.remaining_budget + history[-1][comparable_player]:
                             bid = True
                 bids[player] = self.vals[player]
 
@@ -117,10 +117,10 @@ class AFK:
     '''
     Agent that participates in the draft but does not make any decisions
     '''
-    def __init__(self, vals, team):
+    def __init__(self, vals):
         # first column: ID, second column: PERCEIVED value
         self.vals = vals
-        self.team = team
+        self.team = []
         self.remaining_budget = 20
 
     def player_prices(self, history):
@@ -137,10 +137,10 @@ class Random:
     '''
     Makes quirky decisions
     '''
-    def __init__(self, vals, team):
+    def __init__(self, vals):
         # first column: ID, second column: PERCEIVED value
         self.vals = vals
-        self.team = team
+        self.team = []
         self.remaining_budget = 20
 
     def player_prices(self, history):
@@ -162,17 +162,17 @@ class Random:
 
         players_with_roles = {}
         for player in self.team:
-            if player in player_df.index():
+            if player in player_df.index:
                 players_with_roles[player] = player_df.loc[player]["Position"]
 
         bids = {}
         for player in self.vals:
             bid = False
-            if player in player_df.index():
+            if player in player_df.index:
                 comparable_players = [players_with_roles[owned_player] == player_df.loc[player]["Position"] for owned_player in players_with_roles]
                 for comparable_player in comparable_players:
                     if self.vals[player] > self.vals[comparable_player]:
-                        if history[-1].loc[player]["Price"] < history[-1].loc[comparable_player]["Price"]:
+                        if history[-1][player] < history[-1][comparable_player]:
                             bid = True
                 bids[player] = self.vals[player]
 
@@ -182,10 +182,10 @@ class SmartAgent:
     '''
     Similar to short term agent but more reasonable weights for a longer number of weeks
     '''
-    def __init__(self, vals, team):
+    def __init__(self, vals):
         # first column: ID, second column: PERCEIVED value
         self.vals = vals
-        self.team = team
+        self.team = []
         self.remaining_budget = 20
 
     def player_prices(self, history):
@@ -206,23 +206,23 @@ class SmartAgent:
         learning_rate = 0.7
         self.vals[player] = (1 - learning_rate)*self.vals[player]
         for player in self.vals:
-            if player in player_df.index():
+            if player in player_df.index:
                 for i in range(history.round()):
                     self.vals[player] = self.vals[player] + learning_rate/(history.round())*pd.read_csv("data/2022/by_weeks/week_"+str(i+1)).loc[player]["FPTS"]/20.0
 
         players_with_roles = {}
         for player in self.team:
-            if player in player_df.index():
+            if player in player_df.index:
                 players_with_roles[player] = player_df.loc[player]["Position"]
 
         bids = {}
         for player in self.vals:
             bid = False
-            if player in player_df.index():
+            if player in player_df.index:
                 comparable_players = [players_with_roles[owned_player] == player_df.loc[player]["Position"] for owned_player in players_with_roles]
                 for comparable_player in comparable_players:
                     if self.vals[player] > self.vals[comparable_player]:
-                        if history[-1].loc[player]["Price"] < self.remaining_budget + history[-1].loc[comparable_player]["Price"]:
+                        if history[-1][player] < self.remaining_budget + history[-1][comparable_player]:
                             bid = True
                 bids[player] = self.vals[player]
 

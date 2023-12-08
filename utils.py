@@ -105,18 +105,17 @@ def price_fluc(agents, prev_teams, last_week_prices):
     
     new_prices = last_week_prices.copy()
 
-    for (idx, player) in last_week_prices.iterrows():
+    for (idx, _) in last_week_prices.items():
         # Assumes agents are listed in the same order as their temas in the previous week.
         prev_count = 0
         cur_count = 0
         for i in range(len(agents)):
-            if idx in agents[i].teams:
+            if idx in agents[i].team:
                 cur_count += 1
             if idx in prev_teams[i]:
                 prev_count += 1
             
-        new_prices.loc[idx]["Price"] *= (cur_count / prev_count)
-
+        new_prices[idx] += 2 * (cur_count / len(agents) - prev_count / len(agents))
 
     return new_prices
 
@@ -125,12 +124,13 @@ if __name__ == "__main__":
     # later
     player_df = pd.read_csv("data/2021/player_list.csv", index_col=0)
     vals = valuation_generation(player_df)
-    # print("vals:",vals)
-    
-    print("vals_adjusted:",vals+vals+vals)
-    print(player_df)
     team = team_selection_amm(vals, player_df)
-    print("Team:")
-    for player in team:
-        print("Player: " + str(player), "Position: " + player_df.loc[player]["Position"])
+    from agents import ShortTermAgent
+    agent = ShortTermAgent(vals)
+    agent.team = team
     print(team)
+    new_team = team.copy()
+    new_team.remove("Cooper Kupp")
+    new_prices = price_fluc([agent], [new_team], player_df["Price"])
+    print(player_df.loc["Cooper Kupp"])
+    print(new_prices.loc["Cooper Kupp"])

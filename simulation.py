@@ -17,12 +17,12 @@ def run_amm(agents, player_df):
             for (player, ask) in asks.items():
                 if mech.sell_player(player, ask):
                     agent.team.remove(player)
-                    agent.budget = agent.budget + history[player]
+                    agent.remaining_budget += history[-1][player]
             bids = agent.player_bids(history)
             for (player, bid) in bids.items():
                 if mech.buy_player(player, bid):
                     agent.team.append(player)
-                    agent.budget = agent.budget - history[player]
+                    agent.budget -= history[-1][player]
             
             new_prices = price_fluc(agents, prev_teams, history[-1])
             prev_teams = []
