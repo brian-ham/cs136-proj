@@ -1,11 +1,10 @@
+import random
 import numpy as np
 import pandas as pd
 from constants import *
 budget = 20
 
-player_df = pd.read_csv("data/2021/player_list.csv", index_col=0)
-
-def valuation_generation():
+def valuation_generation(player_df):
     '''
     list -> list: Creates initial valuations for agents
     
@@ -40,12 +39,11 @@ def team_selection_amm(vals, players):
     team = []
     remaining_budget = budget
     remaining_positions = positions_limit.copy()
-    print("index:", players.index)
     # Select players greedily while staying within budget and position limits
     for (idx, player) in players.iterrows():
         if (
-            player["Price"] <= remaining_budget
-            and remaining_positions[player["Position"]] > 0
+            player["Price"] <= remaining_budget and
+            remaining_positions[player["Position"]] > 0
         ):
             # append player's index
             team.append(idx)
@@ -58,13 +56,47 @@ def team_selection_amm(vals, players):
 
     return team
 
-def team_selection_draft(agents, values, players):
+def team_selection_draft(agents, players):
     '''
-    #NOTE: need to do in the simulation? since we need to divide up the players among all the agents;
-            can't be independently decided for each agent.
-    #NOTE: or pass in the agents here
+    list -> list: Creates team selection for agents using draft
+
+    uses valuation generation to get initial valuations for players
+    selects players greedily by value-per-dollar
     '''
 
+    available_players = players.copy()
+    agent_prefs = []
+    remaining_positions = []
+    teams = []
+    for agent in agents:
+        teams.append([])
+        remaining_positions.append(positions_limit.copy())
+        # Add perceived values to the players df (which is indexed by the Player name)
+        # initialize new column Perceived Value
+        players["Perceived Value"] = 0
+        for name in players.index:
+            players.loc[name, "Perceived Value"] = agent.get_valuation()[name]
+
+        agent_prefs.append(players.sort_values(by="Perceived Value", ascending=False))
+
+    # Generate a random draft order.
+    draft_order = list(range(len(agents)))
+    random.shuffle(draft_order)
+    num_rounds = sum(positions_limit.values())
+
+    # Assumes there will be enough players to fill all positions in all teams.
+    for _ in range(num_rounds):
+        for agent_idx in draft_order:
+            # Let agent j in the draft order get their currently top pick
+            for (idx, player) in agent_prefs[agent_idx].iterrows():
+                if idx in available_players.index and remaining_positions[agent_idx][player["Position"]] > 0:
+                    teams[agent_idx].append(idx)
+                    available_players.drop(idx, inplace=True)
+                    remaining_positions[agent_idx][player["Position"]] -= 1
+                    agent_prefs[agent_idx].drop(idx, inplace=True)
+                    break
+
+    return teams
 
 def price_fluc():
     '''
@@ -74,9 +106,11 @@ def price_fluc():
     pass
 
 if __name__ == "__main__":
-    # Just for testing purposes. Can delete later
-    vals = valuation_generation()
-    print(vals)
+    # Just for testing purposes. Can delete 
+    # later
+    player_df = pd.read_csv("data/2021/player_list.csv", index_col=0)
+    vals = valuation_generation(player_df)
+    print(player_df)
     team = team_selection_amm(vals, player_df)
     print("Team:")
     for player in team:
