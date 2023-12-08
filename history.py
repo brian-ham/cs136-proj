@@ -2,8 +2,6 @@ import numpy
 
 class History:
     def __init__(self):
-        # I feel like this should be a dictionary of player : price. It is bro. It's a list of dataframes.
-        # prices[0] represents the prices for all the players in week 0.
         self.prices = []
     
     def add(self, new_prices):
