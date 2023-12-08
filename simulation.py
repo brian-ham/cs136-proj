@@ -57,6 +57,7 @@ if __name__ == '__main__':
             agents.append(ShortTermAgent(vals))
             team = team_selection_amm(vals, player_df)
             agents[i].team = team
+            agents[i].remaining_budget = agents[i].remaining_budget - sum([player_df.loc[player]["Price"] for player in team])
 
         run_amm(agents, player_df)
     else:
