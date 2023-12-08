@@ -11,8 +11,8 @@ class ShortTermAgent:
     def __init__(self, vals):
         # first column: ID, second column: PERCEIVED value
         self.vals = vals
-        self.team = []
-        self.budget = 20
+        self.team = team
+        self.remaining_budget = 20
 
     def player_prices(self, history):
         '''
@@ -31,21 +31,26 @@ class ShortTermAgent:
 
         learning_rate = 0.9
         for player in self.vals:
-            self.vals[player] = (1 - learning_rate)*self.vals[player] + learning_rate*player_df.loc[player]["FPTS"]/20.0
+            if player in player_df.index():
+                self.vals[player] = (1 - learning_rate)*self.vals[player] + learning_rate*player_df.loc[player]["FPTS"]/20.0
+            else:
+                self.vals[player] = 0
 
         players_with_roles = {}
         for player in self.team:
-            players_with_roles[player] = player_df.loc[player]["Position"]
+            if player in player_df.index():
+                players_with_roles[player] = player_df.loc[player]["Position"]
 
         bids = {}
         for player in self.vals:
             bid = False
-            comparable_players = [players_with_roles[owned_player] == player_df.loc[player]["Position"] for owned_player in players_with_roles]
-            for comparable_player in comparable_players:
-                if self.vals[player] > self.vals[comparable_player]:
-                    if history[-1].loc[player]["Price"] < history[-1].loc[comparable_player]["Price"]:
-                        bid = True
-            bids[player] = self.vals[player]
+            if player in player_df.index():
+                comparable_players = [players_with_roles[owned_player] == player_df.loc[player]["Position"] for owned_player in players_with_roles]
+                for comparable_player in comparable_players:
+                    if self.vals[player] > self.vals[comparable_player]:
+                        if history[-1].loc[player]["Price"] < history[-1].loc[comparable_player]["Price"]:
+                            bid = True
+                bids[player] = self.vals[player]
 
         return bids
 
@@ -83,23 +88,28 @@ class LongTerm:
         '''
         player_df = pd.read_csv("data/2022/by_weeks/week_"+str(history.round()), index_col=0)
 
-        learning_rate = 0.1
+        learning_rate = 0.05
         for player in self.vals:
-            self.vals[player] = (1 - learning_rate)*self.vals[player] + learning_rate*player_df.loc[player]["FPTS"]/20.0
+            if player in player_df.index():
+                self.vals[player] = (1 - learning_rate)*self.vals[player] + learning_rate*player_df.loc[player]["FPTS"]/20.0
+            else:
+                self.vals[player] = 0
 
         players_with_roles = {}
         for player in self.team:
-            players_with_roles[player] = player_df.loc[player]["Position"]
+            if player in player_df.index(): 
+                players_with_roles[player] = player_df.loc[player]["Position"]
 
         bids = {}
         for player in self.vals:
             bid = False
-            comparable_players = [players_with_roles[owned_player] == player_df.loc[player]["Position"] for owned_player in players_with_roles]
-            for comparable_player in comparable_players:
-                if self.vals[player] > self.vals[comparable_player]:
-                    if history[-1].loc[player]["Price"] < self.remaining_budget + history[-1].loc[comparable_player]["Price"]:
-                        bid = True
-            bids[player] = self.vals[player]
+            if player in player_df.index():
+                comparable_players = [players_with_roles[owned_player] == player_df.loc[player]["Position"] for owned_player in players_with_roles]
+                for comparable_player in comparable_players:
+                    if self.vals[player] > self.vals[comparable_player]:
+                        if history[-1].loc[player]["Price"] < self.remaining_budget + history[-1].loc[comparable_player]["Price"]:
+                            bid = True
+                bids[player] = self.vals[player]
 
         return bids
 
@@ -111,7 +121,7 @@ class AFK:
         # first column: ID, second column: PERCEIVED value
         self.vals = vals
         self.team = team
-        self.budget = 20
+        self.remaining_budget = 20
 
     def player_prices(self, history):
         player_prices = {}
@@ -131,7 +141,7 @@ class Random:
         # first column: ID, second column: PERCEIVED value
         self.vals = vals
         self.team = team
-        self.budget = 20
+        self.remaining_budget = 20
 
     def player_prices(self, history):
         '''
@@ -152,17 +162,19 @@ class Random:
 
         players_with_roles = {}
         for player in self.team:
-            players_with_roles[player] = player_df.loc[player]["Position"]
+            if player in player_df.index():
+                players_with_roles[player] = player_df.loc[player]["Position"]
 
         bids = {}
         for player in self.vals:
             bid = False
-            comparable_players = [players_with_roles[owned_player] == player_df.loc[player]["Position"] for owned_player in players_with_roles]
-            for comparable_player in comparable_players:
-                if self.vals[player] > self.vals[comparable_player]:
-                    if history[-1].loc[player]["Price"] < history[-1].loc[comparable_player]["Price"]:
-                        bid = True
-            bids[player] = self.vals[player]
+            if player in player_df.index():
+                comparable_players = [players_with_roles[owned_player] == player_df.loc[player]["Position"] for owned_player in players_with_roles]
+                for comparable_player in comparable_players:
+                    if self.vals[player] > self.vals[comparable_player]:
+                        if history[-1].loc[player]["Price"] < history[-1].loc[comparable_player]["Price"]:
+                            bid = True
+                bids[player] = self.vals[player]
 
         return bids
 
@@ -191,23 +203,27 @@ class SmartAgent:
         '''
         player_df = pd.read_csv("data/2022/by_weeks/week_"+str(history.round()), index_col=0)
 
-        learning_rate = 0.1
+        learning_rate = 0.7
+        self.vals[player] = (1 - learning_rate)*self.vals[player]
         for player in self.vals:
-            
-            self.vals[player] = (1 - learning_rate)*self.vals[player] + learning_rate*player_df.loc[player]["FPTS"]/20.0
+            if player in player_df.index():
+                for i in range(history.round()):
+                    self.vals[player] = self.vals[player] + learning_rate/(history.round())*pd.read_csv("data/2022/by_weeks/week_"+str(i+1)).loc[player]["FPTS"]/20.0
 
         players_with_roles = {}
         for player in self.team:
-            players_with_roles[player] = player_df.loc[player]["Position"]
+            if player in player_df.index():
+                players_with_roles[player] = player_df.loc[player]["Position"]
 
         bids = {}
         for player in self.vals:
             bid = False
-            comparable_players = [players_with_roles[owned_player] == player_df.loc[player]["Position"] for owned_player in players_with_roles]
-            for comparable_player in comparable_players:
-                if self.vals[player] > self.vals[comparable_player]:
-                    if history[-1].loc[player]["Price"] < self.remaining_budget + history[-1].loc[comparable_player]["Price"]:
-                        bid = True
-            bids[player] = self.vals[player]
+            if player in player_df.index():
+                comparable_players = [players_with_roles[owned_player] == player_df.loc[player]["Position"] for owned_player in players_with_roles]
+                for comparable_player in comparable_players:
+                    if self.vals[player] > self.vals[comparable_player]:
+                        if history[-1].loc[player]["Price"] < self.remaining_budget + history[-1].loc[comparable_player]["Price"]:
+                            bid = True
+                bids[player] = self.vals[player]
 
         return bids
