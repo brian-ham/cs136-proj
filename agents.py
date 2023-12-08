@@ -13,6 +13,7 @@ class ShortTermAgent:
         self.vals = vals
         self.team = team
         self.remaining_budget = 20
+        self.total_score = 0
 
     def player_prices(self, history):
         '''
@@ -54,9 +55,10 @@ class ShortTermAgent:
 
         return bids
 
-    def calculate_value(self, history):
+    def calculate_points(self, history):
         '''
-        list -> int: Calculates the total perofrmance scores in the past week for all players on self.team
+        list -> None: Calculates the total perofrmance scores in the past week for all players on self.team
+        automatically adds this to self.total_score
         '''
         week_results = pd.read_csv(f"data/2022/by_weeks/week_{history.round()}.csv", index_col=0)
         weekly_score = 0
@@ -64,6 +66,7 @@ class ShortTermAgent:
             if player in week_results["Player"]:
                 weekly_score += week_results.loc[player]["FPTS"]
                 self.vals[player] = player_df.loc[player]["FPTS"]/20.0
+        self.total_score += weekly_score
 
     ## Delete run function. Implement the strategy in player_prices and player_bids. Each round, player_prices() is called first for all agents,
     ## then, player_bids is called for all agents, then the mechanism performs trading/buying. For AMM, if you don't want to sell a player,
