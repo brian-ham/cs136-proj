@@ -62,7 +62,7 @@ class ShortTermAgent:
 
         
 
-class LongTerm:
+class LongTermAgent:
     '''
     Agent that makes decisions based on long-term performance, i.e. sticks to past season's performance for valuation
     '''
@@ -113,7 +113,7 @@ class LongTerm:
 
         return bids
 
-class AFK:
+class AFKAgent:
     '''
     Agent that participates in the draft but does not make any decisions
     '''
@@ -133,7 +133,7 @@ class AFK:
         return {}
 
 
-class Random:
+class RandomAgent:
     '''
     Makes quirky decisions
     '''

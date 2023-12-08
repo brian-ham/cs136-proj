@@ -38,7 +38,7 @@ def run_cda(agents):
     history = History()
     for i in range(1, 15):
         player_df = pd.read_csv(f"data/2022/by_weeks/week_{i}.csv", index_col=0)
-        mech = CDA()
+        mech = CDA(agents)
         for agent in agents:
             asks = agent.player_prices(history)
 
