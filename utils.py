@@ -112,10 +112,11 @@ def price_fluc(agents, prev_teams, last_week_prices):
         for i in range(len(agents)):
             if idx in agents[i].team:
                 cur_count += 1
+        for i in range(len(prev_teams)):
             if idx in prev_teams[i]:
                 prev_count += 1
             
-        new_prices[idx] += 2 * (cur_count / len(agents) - prev_count / len(agents))
+        new_prices[idx] += max(0, 2 * (cur_count / len(agents) - prev_count / len(agents)))
 
     return new_prices
 

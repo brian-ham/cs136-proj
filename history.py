@@ -1,9 +1,21 @@
+import numpy
+
 class History:
     def __init__(self):
         # I feel like this should be a dictionary of player : price. It is bro. It's a list of dataframes.
         # prices[0] represents the prices for all the players in week 0.
         self.prices = []
     
+    def add(self, new_prices):
+        to_add = {}
+        for player, price in new_prices.items():
+            if type(price) == numpy.float64 or type(price) == float:
+                to_add[player] = price
+            else:
+                to_add[player] = price[0]
+        
+        self.prices.append(to_add)
+
     def round(self):
         return len(self.prices)
     

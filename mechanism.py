@@ -3,13 +3,13 @@ class AMM:
         self.players = players
 
     def buy_player(self, player, bid):
-        if bid >= self.players.loc[player]:
+        if bid >= self.players[player]:
             return True
 
         return False
     
     def sell_player(self, player, ask):
-        if ask <= self.players.loc[player]:
+        if ask <= self.players[player]:
             return True
         
         return False

@@ -4,6 +4,8 @@ from utils import *
 from constants import *
 from history import History
 
+player_info = pd.read_csv("data/2021/player_list.csv", index_col=0)
+
 class ShortTermAgent:
     '''
     Agent that makes reactionary decisions, i.e. values players based on their performance in just the past week
@@ -38,29 +40,22 @@ class ShortTermAgent:
 
         players_with_roles = {}
         for player in self.team:
-            if player in player_df.index:
-                players_with_roles[player] = player_df.loc[player]["Position"]
+            if player in player_info.index:
+                players_with_roles[player] = player_info.loc[player]["Position"]
 
         bids = {}
         for player in self.vals:
             bid = False
             if player in player_df.index:
-                comparable_players = [players_with_roles[owned_player] == player_df.loc[player]["Position"] for owned_player in players_with_roles]
+                comparable_players = [player for player, pos in players_with_roles.items() if pos == player_info.loc[player]["Position"]]
                 for comparable_player in comparable_players:
                     if self.vals[player] > self.vals[comparable_player]:
                         if history[-1][player] < history[-1][comparable_player]:
                             bid = True
-                bids[player] = self.vals[player]
+                if bid:
+                    bids[player] = self.vals[player]
 
         return bids
-
-    ## Delete run function. Implement the strategy in player_prices and player_bids. Each round, player_prices() is called first for all agents,
-    ## then, player_bids is called for all agents, then the mechanism performs trading/buying. For AMM, if you don't want to sell a player,
-    ## set the price value to very high. If you definitely want to sell a player, set it to 0. A player will be sold back to the market 
-    ## if the ask price is lower than the market price (you will get the market price back) (haha jk keep track of your own budget).
-
-
-        
 
 class LongTerm:
     '''
@@ -98,13 +93,13 @@ class LongTerm:
         players_with_roles = {}
         for player in self.team:
             if player in player_df.index: 
-                players_with_roles[player] = player_df.loc[player]["Position"]
+                players_with_roles[player] = player_info.loc[player]["Position"]
 
         bids = {}
         for player in self.vals:
             bid = False
             if player in player_df.index:
-                comparable_players = [players_with_roles[owned_player] == player_df.loc[player]["Position"] for owned_player in players_with_roles]
+                comparable_players = [players_with_roles[owned_player] == player_info.loc[player]["Position"] for owned_player in players_with_roles]
                 for comparable_player in comparable_players:
                     if self.vals[player] > self.vals[comparable_player]:
                         if history[-1][player] < self.remaining_budget + history[-1][comparable_player]:
@@ -163,13 +158,13 @@ class Random:
         players_with_roles = {}
         for player in self.team:
             if player in player_df.index:
-                players_with_roles[player] = player_df.loc[player]["Position"]
+                players_with_roles[player] = player_info.loc[player]["Position"]
 
         bids = {}
         for player in self.vals:
             bid = False
             if player in player_df.index:
-                comparable_players = [players_with_roles[owned_player] == player_df.loc[player]["Position"] for owned_player in players_with_roles]
+                comparable_players = [players_with_roles[owned_player] == player_info.loc[player]["Position"] for owned_player in players_with_roles]
                 for comparable_player in comparable_players:
                     if self.vals[player] > self.vals[comparable_player]:
                         if history[-1][player] < history[-1][comparable_player]:
@@ -213,13 +208,13 @@ class SmartAgent:
         players_with_roles = {}
         for player in self.team:
             if player in player_df.index:
-                players_with_roles[player] = player_df.loc[player]["Position"]
+                players_with_roles[player] = player_info.loc[player]["Position"]
 
         bids = {}
         for player in self.vals:
             bid = False
             if player in player_df.index:
-                comparable_players = [players_with_roles[owned_player] == player_df.loc[player]["Position"] for owned_player in players_with_roles]
+                comparable_players = [players_with_roles[owned_player] == player_info.loc[player]["Position"] for owned_player in players_with_roles]
                 for comparable_player in comparable_players:
                     if self.vals[player] > self.vals[comparable_player]:
                         if history[-1][player] < self.remaining_budget + history[-1][comparable_player]:

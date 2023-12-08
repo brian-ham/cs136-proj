@@ -7,10 +7,10 @@ from utils import *
 
 def run_amm(agents, player_df):
     history = History()
-    history.prices.append(player_df["Price"])
+    history.add(player_df["Price"])
     prev_teams = []
     for i in range(1, 3):
-        mech = AMM(history[i-1])
+        mech = AMM(history[-1])
         for agent in agents:
             prev_teams.append(agent.team)
             asks = agent.player_prices(history)
@@ -22,13 +22,12 @@ def run_amm(agents, player_df):
             for (player, bid) in bids.items():
                 if mech.buy_player(player, bid):
                     agent.team.append(player)
-                    agent.budget -= history[-1][player]
+                    agent.remaining_budget -= history[-1][player]
             
             new_prices = price_fluc(agents, prev_teams, history[-1])
+            # print(new_prices)
             prev_teams = []
-            history.prices.append(new_prices)
-            print(f"Round {i}:")
-            print(history.prices[i-1])
+            history.add(new_prices)
 
             ### TODO: Figure out who won the week idk how to do this. Add to history in whatever way you want.
 
