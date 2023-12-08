@@ -66,9 +66,9 @@ class ShortTermAgent:
         week_results = pd.read_csv(f"data/2022/by_weeks/week_{history.round()}.csv", index_col=0)
         weekly_score = 0
         for player in self.team:
-            if player in week_results["Player"]:
+            if player in week_results.index:
                 weekly_score += week_results.loc[player]["FPTS"]
-                self.vals[player] = player_df.loc[player]["FPTS"]/20.0
+                self.vals[player] = week_results.loc[player]["FPTS"]/20.0
         self.total_score += weekly_score
 
 class LongTermAgent:
@@ -96,7 +96,7 @@ class LongTermAgent:
         '''
         Should return a dict of players -> prices that this agent wants to buy.
         '''
-        player_df = pd.read_csv("data/2022/by_weeks/week_"+str(history.round()), index_col=0)
+        player_df = pd.read_csv(f"data/2022/by_weeks/week_{history.round()}.csv", index_col=0)
 
         learning_rate = 0.05
         for player in self.vals:
@@ -114,12 +114,13 @@ class LongTermAgent:
         for player in self.vals:
             bid = False
             if player in player_df.index:
-                comparable_players = [players_with_roles[owned_player] == player_info.loc[player]["Position"] for owned_player in players_with_roles]
+                comparable_players = [player for player, pos in players_with_roles.items() if pos == player_info.loc[player]["Position"]]
                 for comparable_player in comparable_players:
                     if self.vals[player] > self.vals[comparable_player]:
-                        if history[-1][player] < self.remaining_budget + history[-1][comparable_player]:
+                        if history[-1][player] < history[-1][comparable_player]:
                             bid = True
-                bids[player] = self.vals[player]
+                if bid:
+                    bids[player] = self.vals[player]
 
         return bids
 
@@ -131,9 +132,9 @@ class LongTermAgent:
         week_results = pd.read_csv(f"data/2022/by_weeks/week_{history.round()}.csv", index_col=0)
         weekly_score = 0
         for player in self.team:
-            if player in week_results["Player"]:
+            if player in week_results.index:
                 weekly_score += week_results.loc[player]["FPTS"]
-                self.vals[player] = player_df.loc[player]["FPTS"]/20.0
+                self.vals[player] = week_results.loc[player]["FPTS"]/20.0
         self.total_score += weekly_score
 
 class AFKAgent:
@@ -164,9 +165,9 @@ class AFKAgent:
         week_results = pd.read_csv(f"data/2022/by_weeks/week_{history.round()}.csv", index_col=0)
         weekly_score = 0
         for player in self.team:
-            if player in week_results["Player"]:
+            if player in week_results.index:
                 weekly_score += week_results.loc[player]["FPTS"]
-                self.vals[player] = player_df.loc[player]["FPTS"]/20.0
+                self.vals[player] = week_results.loc[player]["FPTS"]/20.0
         self.total_score += weekly_score
 
 class RandomAgent:
@@ -193,9 +194,10 @@ class RandomAgent:
         '''
         Should return a dict of players -> prices that this agent wants to buy.
         '''
-        player_df = pd.read_csv("data/2022/by_weeks/week_"+str(round), index_col=0)
+        player_df = pd.read_csv(f"data/2022/by_weeks/week_{history.round()}.csv", index_col=0)
 
-        self.vals[player] = np.random.uniform(0, 2)*self.vals[player]
+        for player in self.vals:
+            self.vals[player] = np.random.uniform(0, 2)*self.vals[player]
 
         players_with_roles = {}
         for player in self.team:
@@ -206,12 +208,13 @@ class RandomAgent:
         for player in self.vals:
             bid = False
             if player in player_df.index:
-                comparable_players = [players_with_roles[owned_player] == player_info.loc[player]["Position"] for owned_player in players_with_roles]
+                comparable_players = [player for player, pos in players_with_roles.items() if pos == player_info.loc[player]["Position"]]
                 for comparable_player in comparable_players:
                     if self.vals[player] > self.vals[comparable_player]:
                         if history[-1][player] < history[-1][comparable_player]:
                             bid = True
-                bids[player] = self.vals[player]
+                if bid:
+                    bids[player] = self.vals[player]
 
         return bids
     
@@ -223,9 +226,9 @@ class RandomAgent:
         week_results = pd.read_csv(f"data/2022/by_weeks/week_{history.round()}.csv", index_col=0)
         weekly_score = 0
         for player in self.team:
-            if player in week_results["Player"]:
+            if player in week_results.index:
                 weekly_score += week_results.loc[player]["FPTS"]
-                self.vals[player] = player_df.loc[player]["FPTS"]/20.0
+                self.vals[player] = week_results.loc[player]["FPTS"]/20.0
         self.total_score += weekly_score
 
 class SmartAgent:
@@ -252,14 +255,14 @@ class SmartAgent:
         '''
         Should return a dict of players -> prices that this agent wants to buy.
         '''
-        player_df = pd.read_csv("data/2022/by_weeks/week_"+str(history.round()), index_col=0)
+        player_df = pd.read_csv(f"data/2022/by_weeks/week_{history.round()}.csv", index_col=0)
 
         learning_rate = 0.7
-        self.vals[player] = (1 - learning_rate)*self.vals[player]
         for player in self.vals:
+            self.vals[player] = (1 - learning_rate)*self.vals[player]
             if player in player_df.index:
                 for i in range(history.round()):
-                    self.vals[player] = self.vals[player] + learning_rate/(history.round())*pd.read_csv("data/2022/by_weeks/week_"+str(i+1)).loc[player]["FPTS"]/20.0
+                    self.vals[player] = self.vals[player] + learning_rate/(history.round())*pd.read_csv(f"data/2022/by_weeks/week_{history.round()}.csv", index_col=0).loc[player]["FPTS"]/20.0
 
         players_with_roles = {}
         for player in self.team:
@@ -270,12 +273,13 @@ class SmartAgent:
         for player in self.vals:
             bid = False
             if player in player_df.index:
-                comparable_players = [players_with_roles[owned_player] == player_info.loc[player]["Position"] for owned_player in players_with_roles]
+                comparable_players = [player for player, pos in players_with_roles.items() if pos == player_info.loc[player]["Position"]]
                 for comparable_player in comparable_players:
                     if self.vals[player] > self.vals[comparable_player]:
-                        if history[-1][player] < self.remaining_budget + history[-1][comparable_player]:
+                        if history[-1][player] < history[-1][comparable_player]:
                             bid = True
-                bids[player] = self.vals[player]
+                if bid:
+                    bids[player] = self.vals[player]
 
         return bids
     
@@ -287,7 +291,7 @@ class SmartAgent:
         week_results = pd.read_csv(f"data/2022/by_weeks/week_{history.round()}.csv", index_col=0)
         weekly_score = 0
         for player in self.team:
-            if player in week_results["Player"]:
+            if player in week_results.index:
                 weekly_score += week_results.loc[player]["FPTS"]
-                self.vals[player] = player_df.loc[player]["FPTS"]/20.0
+                self.vals[player] = week_results.loc[player]["FPTS"]/20.0
         self.total_score += weekly_score
